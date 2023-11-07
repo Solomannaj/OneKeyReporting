@@ -1,0 +1,17 @@
+.form-section {
+    height: 85px;
+    width: 400px;
+}
+.form-section-double {
+    height: 85px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-between;
+}
+.form-sub-section {
+    height: 97px;
+    width: 192px;
+  }
