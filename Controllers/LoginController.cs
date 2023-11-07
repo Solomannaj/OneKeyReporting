@@ -21,9 +21,9 @@ namespace DataExtractionTool.Controllers
         }
 
         [HttpPost]
-        public async Task<User> PostLogin(User inputUser)
+        public async Task<DataExtractionUsers> PostLogin(DataExtractionUsers inputUser)
         {
-          var user =  await _context.FindByExpressionAsync(x=>x.Email== inputUser.Email && x.Password==inputUser.Password);
+          var user =  await _context.FindByExpressionAsync(x=>x.UserEmail== inputUser.UserEmail && x.Password==inputUser.Password);
           return user.FirstOrDefault();
 
         }

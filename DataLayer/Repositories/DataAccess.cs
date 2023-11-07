@@ -3,7 +3,7 @@
 
 namespace DataExtractionTool.DataLayer.Repositories
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class UserRepository : Repository<DataExtractionUsers>, IUserRepository
     {
         public UserRepository(DataExtractionToolContext DataExtractionToolContext) : base(DataExtractionToolContext)
         {

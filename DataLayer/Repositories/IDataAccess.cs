@@ -2,7 +2,7 @@
 
 namespace DataExtractionTool.DataLayer.Repositories
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository : IRepository<DataExtractionUsers>
     {
     }
 

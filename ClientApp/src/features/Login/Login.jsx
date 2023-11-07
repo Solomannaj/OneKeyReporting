@@ -34,7 +34,7 @@ export default function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     let body={
-        email: data.get("email"),
+        userEmail: data.get("email"),
         password: data.get("password"),
     }
     

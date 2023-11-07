@@ -10,7 +10,7 @@ namespace DataExtractionTool.DataLayer
 {
 	public class DataExtractionToolContext : DbContext
 	{
-		public DbSet<User> User { get; set; }
+		public DbSet<DataExtractionUsers> DataExtractionUsers { get; set; }
 		public DbSet<TestSuit> TestSuit { get; set; }
 
 		public DbSet<TestCase> TestCase { get; set; }
@@ -28,6 +28,10 @@ namespace DataExtractionTool.DataLayer
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-		}
+            modelBuilder.Entity<DataExtractionUsers>(entity =>
+            {
+                entity.HasKey(x => x.UserId);
+            });
+        }
 	}
 }
