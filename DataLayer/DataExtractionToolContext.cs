@@ -11,9 +11,10 @@ namespace DataExtractionTool.DataLayer
 	public class DataExtractionToolContext : DbContext
 	{
 		public DbSet<DataExtractionUsers> DataExtractionUsers { get; set; }
-		public DbSet<TestSuit> TestSuit { get; set; }
+		public DbSet<MatsocResult> FiltersResult { get; set; }
 
-		public DbSet<TestCase> TestCase { get; set; }
+        public DbSet<HCPTypeResult> HCPTypeResult { get; set; }
+        public DbSet<TestCase> TestCase { get; set; }
 
 		public DbSet<TestCaseStep> TestCaseStep { get; set; }
 
@@ -31,6 +32,16 @@ namespace DataExtractionTool.DataLayer
             modelBuilder.Entity<DataExtractionUsers>(entity =>
             {
                 entity.HasKey(x => x.UserId);
+            });
+
+            modelBuilder.Entity<MatsocResult>(entity =>
+            {
+				entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<HCPTypeResult>(entity =>
+            {
+                entity.HasNoKey();
             });
         }
 	}

@@ -25,5 +25,13 @@ namespace DataExtractionTool.DataLayer.Repositories
     {
     }
 
+    public interface IMatsocResultRepository : IRepository<MatsocResult>
+    {
+    }
+
+    public interface IHCPTypeResultRepository : IRepository<HCPTypeResult>
+    {
+    }
+
 
 }

@@ -9,6 +9,7 @@ using DataExtractionTool.Helpers;
 using DataExtractionTool.DataLayer.Repositories;
 using DataExtractionTool.DataLayer;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using DataExtractionTool.DataLayer.Models;
 
 namespace DataExtractionTool
 {
@@ -36,7 +37,9 @@ namespace DataExtractionTool
             services.AddScoped<ITestCaseStepRepository, TestCaseStepRepository>();
             services.AddScoped<IActionKeyRepository, ActionKeyRepository>();
             services.AddScoped<ILocatorTypeRepository, LocatorTypeRepository>();
-
+            services.AddScoped<IMatsocResultRepository, MatsocResultRepository>();
+            services.AddScoped<IHCPTypeResultRepository, HCPTypeResultRepository>();
+            
             var corsBuilder = new CorsPolicyBuilder();
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
