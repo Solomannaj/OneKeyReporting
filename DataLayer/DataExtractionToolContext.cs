@@ -8,8 +8,11 @@ using DataExtractionTool.Helpers;
 
 namespace DataExtractionTool.DataLayer
 {
-	public class DataExtractionToolContext : DbContext
-	{
+    public class DataExtractionToolContext : DbContext
+    {
+        public DataExtractionToolContext(){
+            this.Database.SetCommandTimeout(180);
+        }
 		public DbSet<DataExtractionUsers> DataExtractionUsers { get; set; }
 		public DbSet<MatsocResult> FiltersResult { get; set; }
         public DbSet<HCPTypeResult> HCPTypeResult { get; set; }
