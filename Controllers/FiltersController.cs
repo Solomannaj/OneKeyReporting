@@ -5,6 +5,7 @@ using DataExtractionTool.DataLayer.Models;
 using Microsoft.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DataExtractionTool.Controllers
 {
@@ -22,22 +23,22 @@ namespace DataExtractionTool.Controllers
 
         [HttpGet]
         [Route("GetMatsocAU")]
-        public IQueryable<object> GetMatsocAU()
+        public async Task<List<MatsocResult>> GetMatsocAU()
         {
             //SqlParameter[] inputParameter = {
             //    new SqlParameter("@userid", userid)
             //};
-            return _matsocContext.GetDataProc("EXEC Usp_DT_Get_Matsoc",null);
+            return await _matsocContext.GetDataProc("EXEC Usp_DT_Get_Matsoc",null);
         }
 
         [HttpGet]
         [Route("GetHCPType")]
-        public IQueryable<object> GetHCPType()
+        public async Task<List<HCPTypeResult>> GetHCPType()
         {
             //SqlParameter[] inputParameter = {
             //    new SqlParameter("@userid", userid)
             //};
-            return _hcpTypeContext.GetDataProc("EXEC Usp_DT_Get_HCP_Type", null);
+            return await _hcpTypeContext.GetDataProc("EXEC Usp_DT_Get_HCP_Type", null);
         }
     }
 }

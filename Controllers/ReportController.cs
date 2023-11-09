@@ -3,7 +3,9 @@ using DataExtractionTool.DataLayer.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DataExtractionTool.Controllers
 {
@@ -19,7 +21,7 @@ namespace DataExtractionTool.Controllers
 
         [HttpPost]
         [Route("GetReport")]
-        public IQueryable<object> GetReport(FilterParams_DTO parameters)
+        public async Task<List<ReportResult>> GetReport(FilterParams_DTO parameters)
         {
             SqlParameter[] inputParameter = {
 
@@ -70,7 +72,7 @@ namespace DataExtractionTool.Controllers
                 new SqlParameter("@EMAIL_STATUS", parameters.EMAIL_STATUS),
             };            
          
-            return _context.GetDataProc("EXEC Usp_Get_STD_HCP_Mailing_final_temp " +
+             var result= await _context.GetDataProc("EXEC Usp_Get_STD_HCP_Mailing_final_temp " +
                 " @MATSOC, " +
                 "@HCP_IND_STATUS, " +
                 "@HCP_ACT_STATUS, " +
@@ -95,6 +97,8 @@ namespace DataExtractionTool.Controllers
                 "@CALL_STATUS, " +
                 "@EMAIL_STATUS",
                 inputParameter);
+
+            return result;
         }
     }
 }

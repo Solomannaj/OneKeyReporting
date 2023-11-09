@@ -65,12 +65,12 @@ namespace DataExtractionTool.DataLayer.Repositories
                 return dbContext.Database.ExecuteSqlRaw(query);
             return dbContext.Database.ExecuteSqlRaw(query, param);
         }
-        public IQueryable<T> GetDataProc(string query, SqlParameter[] param = null)
+        public async Task<List<T>> GetDataProc(string query, SqlParameter[] param = null)
         {
             if (param == null)
-                return dbContext.Set<T>().FromSqlRaw(query);
+                return await dbContext.Set<T>().FromSqlRaw(query).ToListAsync();
 
-            return dbContext.Set<T>().FromSqlRaw(query, param);
+            return await dbContext.Set<T>().FromSqlRaw(query, param).ToListAsync();
         }
 
         //public int ExecuteAndGetDataProc(string query, SqlParameter[] param = null)

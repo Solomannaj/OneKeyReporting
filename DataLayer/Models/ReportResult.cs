@@ -50,8 +50,7 @@ namespace DataExtractionTool.DataLayer.Models
         public string BRICK_DESC { get; set; }
         public string PHONE_NUMBER { get; set; }
         public string FAX_NUMBER { get; set; }
-        public string Mail { get; set; }
-        public string Status { get; set; }
+        public string Mail_Status { get; set; }       
         public string Fax_Status { get; set; }        
         public string Phone_Status { get; set; }      
         public string WKP_Email_Status { get; set; }

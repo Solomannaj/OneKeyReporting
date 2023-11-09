@@ -23,6 +23,6 @@ namespace DataExtractionTool.DataLayer.Repositories
         Task<int> UpdateAsync(T entity);
         Task<int> DeleteAsync(T entity);
         int ExecuteProc(string query, SqlParameter[] param);
-        IQueryable<T> GetDataProc(string query, SqlParameter[] param);
+        Task<List<T>> GetDataProc(string query, SqlParameter[] param);
     }
 }

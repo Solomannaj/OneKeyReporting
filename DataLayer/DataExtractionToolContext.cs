@@ -11,7 +11,7 @@ namespace DataExtractionTool.DataLayer
     public class DataExtractionToolContext : DbContext
     {
         public DataExtractionToolContext(){
-            this.Database.SetCommandTimeout(180);
+            this.Database.SetCommandTimeout(300);
         }
 		public DbSet<DataExtractionUsers> DataExtractionUsers { get; set; }
 		public DbSet<MatsocResult> FiltersResult { get; set; }
