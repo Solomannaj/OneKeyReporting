@@ -6,30 +6,15 @@ namespace DataExtractionTool.DataLayer.Repositories
     {
     }
 
-    public interface IActionKeyRepository : IRepository<ActionKey>
-    {
-    }
-
-    public interface ILocatorTypeRepository : IRepository<LocatorType>
-    {
-    }
-
-    public interface ITestSuitRepository : IRepository<TestSuit>
-    {
-    }
-
-    public interface ITestCaseRepository : IRepository<TestCase>
-    {
-    }
-    public interface ITestCaseStepRepository : IRepository<TestCaseStep>
-    {
-    }
-
     public interface IMatsocResultRepository : IRepository<MatsocResult>
     {
     }
 
     public interface IHCPTypeResultRepository : IRepository<HCPTypeResult>
+    {
+    }
+
+    public interface IReportResultRepository : IRepository<ReportResult>
     {
     }
 

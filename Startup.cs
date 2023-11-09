@@ -32,11 +32,7 @@ namespace DataExtractionTool
             services.AddDbContext<DataExtractionToolContext>();
 
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ITestSuitRepository, TestSuitRepository>();
-            services.AddScoped<ITestCaseRepository, TestCaseRepository>();
-            services.AddScoped<ITestCaseStepRepository, TestCaseStepRepository>();
-            services.AddScoped<IActionKeyRepository, ActionKeyRepository>();
-            services.AddScoped<ILocatorTypeRepository, LocatorTypeRepository>();
+            services.AddScoped<IReportResultRepository, ReportResultRepository>();        
             services.AddScoped<IMatsocResultRepository, MatsocResultRepository>();
             services.AddScoped<IHCPTypeResultRepository, HCPTypeResultRepository>();
             

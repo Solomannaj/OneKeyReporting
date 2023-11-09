@@ -12,15 +12,9 @@ namespace DataExtractionTool.DataLayer
 	{
 		public DbSet<DataExtractionUsers> DataExtractionUsers { get; set; }
 		public DbSet<MatsocResult> FiltersResult { get; set; }
-
         public DbSet<HCPTypeResult> HCPTypeResult { get; set; }
-        public DbSet<TestCase> TestCase { get; set; }
-
-		public DbSet<TestCaseStep> TestCaseStep { get; set; }
-
-		public DbSet<ActionKey> ActionKey { get; set; }
-
-		public DbSet<LocatorType> LocatorType { get; set; }
+        public DbSet<ReportResult> TestCase { get; set; }
+		
 		
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -40,6 +34,11 @@ namespace DataExtractionTool.DataLayer
             });
 
             modelBuilder.Entity<HCPTypeResult>(entity =>
+            {
+                entity.HasNoKey();
+            });
+
+            modelBuilder.Entity<ReportResult>(entity =>
             {
                 entity.HasNoKey();
             });
