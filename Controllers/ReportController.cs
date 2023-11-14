@@ -114,33 +114,13 @@ namespace DataExtractionTool.Controllers
 
         [HttpPost]
         [Route("ExportReportHCO")]
-        public  async Task<FileResult> ExportReportHCO(FilterParams_DTO parameters, string country)
+        public  async Task<FileResult> ExportReportHCO(FilterParamsHCO_DTO parameters, string country)
         {
             SqlParameter[] inputParameter = {
 
                 new SqlParameter("@MATSOC", parameters.MATSOC),
 
-                new SqlParameter("@HCP_IND_STATUS", parameters.HCP_IND_STATUS),
-
-                new SqlParameter("@HCP_ACT_STATUS", parameters.HCP_ACT_STATUS),
-
-                new SqlParameter("@HCP_TYPE", parameters.HCP_TYPE),
-
-                new SqlParameter("@HCP_SP_type", parameters.HCP_SP_type),
-
-                new SqlParameter("@HCP_SP1", parameters.HCP_SP1),
-
-                new SqlParameter("@HCP_SP2", parameters.HCP_SP2),
-
-                new SqlParameter("@HCP_SP3", parameters.HCP_SP3),
-
-                new SqlParameter("@HCP_TIH1", parameters.HCP_TIH1),
-
-                new SqlParameter("@HCP_TIH2", parameters.HCP_TIH2),
-
-                new SqlParameter("@HCP_TEN", parameters.HCP_TEN),
-
-                new SqlParameter("@HCP_PRIM_FLAG", parameters.HCP_PRIM_FLAG),
+                new SqlParameter("@HCO_STATUS", parameters.HCO_STATUS),               
 
                 new SqlParameter("@HCO_STATE", parameters.HCO_STATE),
 
@@ -165,7 +145,7 @@ namespace DataExtractionTool.Controllers
                 new SqlParameter("@EMAIL_STATUS", parameters.EMAIL_STATUS),
             };
 
-            var _reportData = await _ADOContext.GetDataTable("Usp_Get_STD_HCP_Mailing_final_temp", inputParameter, country);
+            var _reportData = await _ADOContext.GetDataTable("Usp_Get_STD_HCO_Mailing_final", inputParameter, country);
 
             // string path = sfdlgDownloadReport.FileName;
 
@@ -223,7 +203,7 @@ namespace DataExtractionTool.Controllers
 
         [HttpPost]
         [Route("ExportReportHCP")]
-        public async Task<FileResult> ExportReportHCP(FilterParams_DTO parameters, string country)
+        public async Task<FileResult> ExportReportHCP(FilterParamsHCP_DTO parameters, string country)
         {
             SqlParameter[] inputParameter = {
 
@@ -332,33 +312,13 @@ namespace DataExtractionTool.Controllers
 
         [HttpPost]
         [Route("GetReportHCO")]
-        public async Task<int> GetReportHCO(FilterParams_DTO parameters, string country)
+        public async Task<int> GetReportHCO(FilterParamsHCO_DTO parameters, string country)
         {
             SqlParameter[] inputParameter = {
 
                 new SqlParameter("@MATSOC", parameters.MATSOC),
 
-                new SqlParameter("@HCP_IND_STATUS", parameters.HCP_IND_STATUS),
-
-                new SqlParameter("@HCP_ACT_STATUS", parameters.HCP_ACT_STATUS),
-
-                new SqlParameter("@HCP_TYPE", parameters.HCP_TYPE),
-
-                new SqlParameter("@HCP_SP_type", parameters.HCP_SP_type),
-
-                new SqlParameter("@HCP_SP1", parameters.HCP_SP1),
-
-                new SqlParameter("@HCP_SP2", parameters.HCP_SP2),
-
-                new SqlParameter("@HCP_SP3", parameters.HCP_SP3),
-
-                new SqlParameter("@HCP_TIH1", parameters.HCP_TIH1),
-
-                new SqlParameter("@HCP_TIH2", parameters.HCP_TIH2),
-
-                new SqlParameter("@HCP_TEN", parameters.HCP_TEN),
-
-                new SqlParameter("@HCP_PRIM_FLAG", parameters.HCP_PRIM_FLAG),
+                new SqlParameter("@HCO_STATUS", parameters.HCO_STATUS),              
 
                 new SqlParameter("@HCO_STATE", parameters.HCO_STATE),
 
@@ -383,13 +343,13 @@ namespace DataExtractionTool.Controllers
                 new SqlParameter("@EMAIL_STATUS", parameters.EMAIL_STATUS),
             };
 
-            var result =await _ADOContext.GetDataTable("Usp_Get_STD_HCP_Mailing_final_temp",inputParameter, country);
+            var result =await _ADOContext.GetDataTable("Usp_Get_STD_HCO_Mailing_final", inputParameter, country);
             return result.Rows.Count;           
         }
 
         [HttpPost]
         [Route("GetReportHCP")]
-        public async Task<int> GetReportHCP(FilterParams_DTO parameters, string country)
+        public async Task<int> GetReportHCP(FilterParamsHCP_DTO parameters, string country)
         {
             SqlParameter[] inputParameter = {
 
@@ -439,8 +399,9 @@ namespace DataExtractionTool.Controllers
 
                 new SqlParameter("@EMAIL_STATUS", parameters.EMAIL_STATUS),
             };
+           
 
-            var result = await _ADOContext.GetDataTable("Usp_Get_STD_HCP_Mailing_final_temp", inputParameter, country);
+            var result = await _ADOContext.GetDataTable("Usp_Get_STD_HCP_Mailing_final", inputParameter, country);
             return result.Rows.Count;
         }
 
