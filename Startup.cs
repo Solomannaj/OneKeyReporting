@@ -35,7 +35,9 @@ namespace DataExtractionTool
             services.AddScoped<IReportResultRepository, ReportResultRepository>();        
             services.AddScoped<IMatsocResultRepository, MatsocResultRepository>();
             services.AddScoped<IHCPTypeResultRepository, HCPTypeResultRepository>();
-            
+
+            services.AddScoped<IADORepository, ADORepository>();
+
             var corsBuilder = new CorsPolicyBuilder();
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();

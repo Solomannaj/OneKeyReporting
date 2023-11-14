@@ -21,11 +21,13 @@ namespace DataExtractionTool.Controllers
     public class ReportController : ControllerBase
     {
         private readonly IReportResultRepository _context;
+        private readonly IADORepository _ADOContext;
         IWebHostEnvironment _hostingEnv;
-        public ReportController(IReportResultRepository context, IWebHostEnvironment hostingEnv)
+        public ReportController(IReportResultRepository context, IWebHostEnvironment hostingEnv, IADORepository ADOContext)
         {
             _context = context;
             _hostingEnv = hostingEnv;
+            _ADOContext = ADOContext;
         }
 
         [HttpPost]
@@ -279,17 +281,9 @@ namespace DataExtractionTool.Controllers
 
                 new SqlParameter("@EMAIL_STATUS", parameters.EMAIL_STATUS),
             };
-           
-            SqlConnection con = new SqlConnection(AppSettings.DBConnectionString);
-            SqlCommand cmd = new SqlCommand("Usp_Get_STD_HCP_Mailing_final_temp", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            
-            cmd.Parameters.AddRange(inputParameter);
-            DataTable dt = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            return dt.Rows.Count;           
+            var result =await _ADOContext.GetDataTable("Usp_Get_STD_HCP_Mailing_final_temp",inputParameter);
+            return result.Rows.Count;           
         }
 
 
