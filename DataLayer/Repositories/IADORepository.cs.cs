@@ -6,6 +6,6 @@ namespace DataExtractionTool.DataLayer.Repositories
 {
     public interface IADORepository
     {
-        Task<DataTable> GetDataTable(string spName, SqlParameter[] inputParameter);
+        Task<DataTable> GetDataTable(string spName, SqlParameter[] inputParameter, string country);
     }
 }

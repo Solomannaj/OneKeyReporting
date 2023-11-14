@@ -8,9 +8,9 @@ namespace DataExtractionTool.DataLayer.Repositories
     public class ADORepository: IADORepository
     {
         public ADORepository() { }
-        public async Task<DataTable> GetDataTable(string spName, SqlParameter [] inputParameter) {
+        public async Task<DataTable> GetDataTable(string spName, SqlParameter [] inputParameter,string country) {
 
-            SqlConnection con = new SqlConnection(AppSettings.DBConnectionString);
+            SqlConnection con = new SqlConnection(AppSettings.GetConnectinString(country));
             SqlCommand cmd = new SqlCommand(spName, con);
             cmd.CommandType = CommandType.StoredProcedure;
 

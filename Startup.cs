@@ -27,7 +27,8 @@ namespace DataExtractionTool
         {
             services.AddControllersWithViews();
 
-            AppSettings.DBConnectionString = Configuration.GetConnectionString("DataExtractionToolDB");
+            AppSettings.DBConnectionStringAU = Configuration.GetConnectionString("DataExtractionToolAU");
+            AppSettings.DBConnectionStringNZ = Configuration.GetConnectionString("DataExtractionToolNZ");
 
             services.AddDbContext<DataExtractionToolContext>();
 

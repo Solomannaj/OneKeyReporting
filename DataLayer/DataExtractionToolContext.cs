@@ -21,7 +21,7 @@ namespace DataExtractionTool.DataLayer
 		
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(AppSettings.DBConnectionString);
+			optionsBuilder.UseSqlServer(AppSettings.DBConnectionStringAU);
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
